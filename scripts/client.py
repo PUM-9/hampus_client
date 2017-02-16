@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import rospy
 from chat_server.msg import Message
+from chat_server.srv import NmbClients
 
 nam = "Anon"
 muted = []
@@ -23,6 +24,13 @@ tmp = raw_input("Your name is: ")
 if tmp:
     name = tmp
 muted.append(name)
+
+rospy.wait_for_service('nmb_of_clients')
+try:
+    nmb_clients = rospy.ServiceProxy('nmb_of_clients', NmbClients)
+    print nmb_clients()
+except rospy.ServiceException, e:
+    print "Service call failed: %s" % e
 
 while not rospy.is_shutdown():
     text = raw_input()

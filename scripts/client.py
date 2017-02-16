@@ -2,4 +2,5 @@
 import rospy
 from chat_server.msg import Message
 
-print "Hello World"
+
+print Message

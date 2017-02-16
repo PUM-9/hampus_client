@@ -99,7 +99,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES hampus_client
-  CATKIN_DEPENDS rospy message_runtime
+  CATKIN_DEPENDS rospy
 #  DEPENDS system_lib
 )
 

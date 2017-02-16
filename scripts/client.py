@@ -18,5 +18,5 @@ if not name:
     name = "Anon"
 
 while not rospy.is_shutdown():
-    text = raw_input("#: ")
+    text = raw_input()
     pub.publish(sender=name, message=text)

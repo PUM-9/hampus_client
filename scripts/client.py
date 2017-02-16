@@ -3,11 +3,12 @@ import rospy
 from chat_server.msg import Message
 
 nam = "Anon"
+muted = []
 
 
 def receive(data):
     global name
-    if data.sender != name:
+    if data.sender not in muted and data.message:
         print "%s: %s" % (data.sender, data.message)
 
 
@@ -19,7 +20,13 @@ rospy.Subscriber('chat_out', Message, receive)
 tmp = raw_input("Your name is: ")
 if tmp:
     name = tmp
+muted.append(name)
 
 while not rospy.is_shutdown():
     text = raw_input()
+    if text[0] == "/":
+        text = text[0:]
+        text = text.split(' ')
+        if text[0] == "mute":
+            muted.append(text[1])
     pub.publish(sender=name, message=text)

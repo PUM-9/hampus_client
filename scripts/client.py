@@ -25,7 +25,7 @@ if tmp:
     name = tmp
 muted.append(name)
 
-rospy.wait_for_service('nmb_of_clients')
+rospy.wait_for_service('nmb_clients')
 try:
     nmb_clients = rospy.ServiceProxy('nmb_clients', NmbClients)
     response = nmb_clients()

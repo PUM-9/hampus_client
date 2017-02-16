@@ -27,7 +27,7 @@ muted.append(name)
 
 rospy.wait_for_service('nmb_of_clients')
 try:
-    nmb_clients = rospy.ServiceProxy('nmb_of_clients', NmbClients)
+    nmb_clients = rospy.ServiceProxy('nmb_clients', NmbClients)
     response = nmb_clients('hej')
     print "%d clients online" % response.clients
 except rospy.ServiceException, e:

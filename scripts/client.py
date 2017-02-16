@@ -32,5 +32,7 @@ while not rospy.is_shutdown():
         if text[0] == "mute":
             muted.append(text[1])
             print "muted %s" % text[1]
+        else:
+            print "command not found"
     else:
         pub.publish(sender=name, message=text)

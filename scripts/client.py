@@ -2,6 +2,8 @@
 import rospy
 from chat_server.msg import Message
 
+nam = "Anon"
+
 
 def receive(data):
     global name
@@ -14,9 +16,9 @@ rospy.init_node('hampus_client', anonymous=True)
 rospy.Subscriber('chat_out', Message, receive)
 
 
-name = raw_input("Your name is: ")
-if not name:
-    name = "Anon"
+tmp = raw_input("Your name is: ")
+if tmp:
+    name = tmp
 
 while not rospy.is_shutdown():
     text = raw_input()

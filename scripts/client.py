@@ -34,7 +34,7 @@ except rospy.ServiceException, e:
 
 while not rospy.is_shutdown():
     text = raw_input()
-    if text[0] == "/":
+    if len(text) > 0 and text[0] == "/":
         text = text[0:]
         text = text.split(' ')
         if text[0] == "mute":

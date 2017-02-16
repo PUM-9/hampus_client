@@ -31,5 +31,6 @@ while not rospy.is_shutdown():
         text = text.split(' ')
         if text[0] == "mute":
             muted.append(text[1])
+            print "muted %s" % text[1]
     else:
         pub.publish(sender=name, message=text)

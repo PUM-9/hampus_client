@@ -5,7 +5,9 @@ project(hampus_client)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  rospychat_server
+  rospy
+  message_generation
+  chat_server
 )
 
 ## System dependencies are found with CMake's conventions
@@ -100,7 +102,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES hampus_client
-#  CATKIN_DEPENDS rospychat_server
+  CATKIN_DEPENDS rospy message_runtime chat_server
 #  DEPENDS system_lib
 )
 
@@ -146,10 +148,10 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+install(PROGRAMS
+  scripts/client.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS hampus_client hampus_client_node

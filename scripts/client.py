@@ -9,6 +9,8 @@ muted = []
 def receive(data):
     global name
     if data.sender not in muted and data.message:
+        if len(data.sender) > 10:
+            data.sender = data.sender[:9]
         print "%s: %s" % (data.sender, data.message)
 
 

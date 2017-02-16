@@ -1,1 +1,3 @@
-from chat_server.msgs import Message
+import rospy
+from hampus_client.msgs import Message
+

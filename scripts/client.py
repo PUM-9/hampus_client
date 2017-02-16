@@ -1,0 +1,1 @@
+from chat_server.msgs import Message
